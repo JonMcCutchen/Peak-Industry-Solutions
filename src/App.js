@@ -1,9 +1,35 @@
 import './App.css';
 import  Header  from './Components/Header.jsx';
+import Footer from './Components/Footer.jsx';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import Homepage from './Components/homepage/Homepage.jsx';
+import Employees from './Components/employees/Employees';
+
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Router>
+        <Header/>
+        <Routes>
+          <Route path="/jobs" element=''/>
+            
+          <Route path="/employees" element={<Employees/>}/>
+             
+          <Route exact path="/employers"/>
+  
+          <Route exact path="/employers"/>
+
+          <Route exact path="/" element={<Homepage/>}/> 
+          
+        </Routes>
+        <Footer/>
+
+      </Router>
+
     </div>
   );
 }

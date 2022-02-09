@@ -1,8 +1,17 @@
+/*segoe web font*/
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+}
 .header{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: 100px;
-    border-bottom: 1px solid;
+}
+
+.logo{
+    padding-bottom: none;
+    margin-left: 3rem;
+    height: 125px;
 }
 
 .nav {
@@ -22,3 +31,148 @@
     opacity: .6;
 }
 
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 500px;
+}
+
+.heroOne {
+    grid-column-start: 1;
+    height: 500px;
+    width: 100%;
+}
+
+.heroTwo {
+    grid-column-start: 2;
+    height: 500px;
+    width: 100%;
+}
+
+.homepageContent{
+    padding-top: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid;
+    padding-bottom: 5rem;
+}
+.homepageLeft h1 {
+    color: #768EFB;
+}
+.homepageLeft{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    grid-column-start: 1;
+    margin-left: 5rem;
+    align-items: center;
+    margin-left: 12rem;
+    margin: auto;
+    
+}
+.homepageLeft h1{
+    text-align: center;
+}
+.homepageLeft img{
+   margin-left: 3.2rem;
+}
+.homepageRight{
+    display: flex;
+    flex-direction: column;
+    background-color: #768EFB;
+    grid-column-start: 2;
+    margin-left: 5rem;
+    align-items: center;
+    border-radius: 15px;
+    width: 75%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 500px;
+}
+
+.homepageRight h1{
+    text-align: center;
+}
+
+.blueButton{
+    height: 4rem;
+    width: 20rem;
+    border-radius: 8px;
+    background-color: #7FE5EA;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 1.5rem;
+}
+
+.competitiveJob{
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    align-items: center;
+}
+
+.skilledEmployees{
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    align-items: center;
+}
+
+
+.footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #768EFB;
+    color: white;
+
+}
+.footerLeft{
+    grid-column-start: 1;
+    margin-left: 0;
+    align-items: center;
+    width: 75%;
+    margin: auto;
+}
+.footerRight{
+     margin: auto;
+}
+
+.employees{
+    display:flex;
+    padding: 2rem 0;
+}
+
+.employeesLeft{
+    width: 50%;
+}
+
+.employeesRight{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.signup{
+    background-color: #768EFB;
+    height: 300px;
+    border-radius: 10px;
+    width: 70%;
+}
+.signup input{
+    height: 1.5rem;
+    margin-top: 5%;
+    margin-left: 5%;
+} 
+.signup button{
+    margin-left: 35%;;
+    height: 3rem;
+    width: 7rem;
+    border-radius: 10px;
+    background-color: #7FE5EA;
+}
+
+.fileButton{
+    height: 3rem;
+    width: 7rem;
+    border-radius: 10px;
+    background-color: #7FE5EA;
+}

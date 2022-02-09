@@ -1,34 +1,21 @@
 import React from 'react';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link
   } from "react-router-dom";
-
+import logo from "../assets/images/peak industry solutions.jpg";
 function Header() {
     return(
-        <Router>
+        <div>
             <header className="header">
+                <Link to="/"><img className="logo" src={logo} alt="company logo"/></Link>
                 <div className="nav">
                     <Link to='/jobs'>Jobs</Link>
                     <Link to='/employees'>Employees</Link>
                     <Link to='/employers'>Employers</Link>
-                    <Link to='/about-us'>About Us</Link>
+                    <Link to='/about-us'>About Us</Link> 
                 </div>
             </header>
-            {/* <Switch>
-            <Route path="/jobs">
-              
-            </Route>
-            <Route path="/">
-              
-            </Route>
-            <Route exact path="/">
-              
-            </Route>
-          </Switch> */}
-        </Router>
+        </div>
         
     )
 
