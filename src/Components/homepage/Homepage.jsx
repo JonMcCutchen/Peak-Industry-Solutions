@@ -4,13 +4,13 @@ import HomepageSignUpForm from './HomepageSignupForm';
 import sampleHero from '../../assets/images/sample-hero.jpg';
 import sampleHeroTwo from '../../assets/images/sample-hero-2.jpg';
 import map from '../../assets/images/map_city_in_usa_florence.png';
+import SearchBar from '../jobs/SearchBar';
 
 function Homepage() {
     return (
         <div className = "">
-            <div className="hero">
-                <img className="heroOne" src={sampleHero} alt="sample hero"/>
-                <img className="heroTwo"src={sampleHeroTwo} alt="sample hero 2"/>
+            <div className="hero"> 
+                <SearchBar />
             </div>
             <div className="homepageContent">
                 <div className="homepageLeft">

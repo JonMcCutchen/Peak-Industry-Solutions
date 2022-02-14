@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Homepage from './Components/homepage/Homepage.jsx';
 import Employees from './Components/employees/Employees';
+import JobsPage from './Components/jobs/JobsPage';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Router>
         <Header/>
         <Routes>
-          <Route path="/jobs" element=''/>
+          <Route path="/jobs" element={<JobsPage/>}/>
             
           <Route path="/employees" element={<Employees/>}/>
              

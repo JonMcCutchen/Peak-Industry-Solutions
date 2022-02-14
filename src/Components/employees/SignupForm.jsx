@@ -14,13 +14,15 @@ function SignupForm() {
 
                 <input type="password" id="password" name="password" placeholder="Password" minlength="8" required/>
             </div>
-            <div className="fileButton">
-            <label for="file">Upload Resume:</label>
-            </div>
-            <input type="file" id="file" style={{display: "none"}} name="file"  required/>
 
-            <button type="submit" value="Submit">Submit</button>
-            
+            <div className="buttons">
+                <div className="fileButton">
+                <label for="file">Upload Resume</label>
+                </div>
+                <input type="file" id="file" style={{display: "none"}} name="file"  required/>
+
+                <button type="submit" value="Submit">Submit</button>
+            </div>
 
         </form>
     )
