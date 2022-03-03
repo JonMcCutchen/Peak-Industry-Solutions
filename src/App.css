@@ -17,7 +17,6 @@ body {
 .nav {
     grid-column-start: 3;
     display: flex;
-    margin-left: 5rem;
     align-items: center;
 }
 
@@ -130,7 +129,19 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
     background-color: #768EFB;
     color: white;
+
     
+    
+}
+
+.footer a {
+    margin: auto;
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    opacity: .5;
 }
 .footerLeft{
     grid-column-start: 1;
@@ -238,12 +249,52 @@ margin-bottom: 1rem;
 
 .jobListing {
     background-color: #768EFB;
-    width: 60%;
+    width: 65%;
     margin: auto;
     border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr .6fr 1.4fr;
+    margin-bottom: 2.5rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .jobListing .listingInfo{
-    margin: 1rem 0 1rem 12rem;
+    grid-column-start: 2;
+}
+.jobSubmit{
+    grid-column-start: 4;
+    margin-left: 2rem;
+    height: 4rem;
+    width: 9rem;
+    background-color: #7FE5EA;
+    margin: auto;
+    border-radius: 10px;
+    line-height: 1.2rem;
+    text-align: center;
+    margin: auto;
+    color: white;
 }
 
+.container{
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+.aboutUs{
+height: 71.5vh;
+}
+.aboutUs h1{
+    text-align: center;
+    color: #768EFB
+}
+
+/* FAQ Sections */
+
+
+.faq-header {
+    text-align: center;
+    color: #768EFB;
+}
+
+.faq h2 {
+    text-decoration: underline;
+}

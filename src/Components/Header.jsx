@@ -12,7 +12,8 @@ function Header() {
                     <Link to='/jobs'>Jobs</Link>
                     <Link to='/employees'>Employees</Link>
                     <Link to='/employers'>Employers</Link>
-                    <Link to='/about-us'>About Us</Link> 
+                    <Link to='/aboutUs'>About Us</Link> 
+                    <Link to='/login'>Login</Link>
                 </div>
             </header>
         </div>

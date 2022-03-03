@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import './App.css';
 import  Header  from './Components/Header.jsx';
 import Footer from './Components/Footer.jsx';
@@ -9,8 +10,13 @@ import {
 import Homepage from './Components/homepage/Homepage.jsx';
 import Employees from './Components/employees/Employees';
 import JobsPage from './Components/jobs/JobsPage';
+import AboutUs from './Components/aboutUs/AboutUs';
+import FAQ from './Components/FAQ';
+import AuthForm from './Components/auth/AuthForm';
 
 function App() {
+  
+
   return (
     <div className="App">
       <Router>
@@ -20,11 +26,15 @@ function App() {
             
           <Route path="/employees" element={<Employees/>}/>
              
-          <Route exact path="/employers"/>
-  
-          <Route exact path="/employers"/>
+          <Route path="/employers"/>
+
+          <Route path="/aboutUs" element={<AboutUs/>}/>
 
           <Route exact path="/" element={<Homepage/>}/> 
+
+          <Route path="/faq" element={<FAQ/>}/>
+
+          <Route path="/login" element={<AuthForm/>}/>
           
         </Routes>
         <Footer/>

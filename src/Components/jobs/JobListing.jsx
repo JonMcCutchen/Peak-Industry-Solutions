@@ -11,7 +11,7 @@ const JobListing = () => {
             try {
                 const response = await fetch(url);
                 const json = await response.json();
-                console.log(json.results);
+                
                 setAdvice(({
                     company: json.results
                 })
@@ -26,15 +26,21 @@ const JobListing = () => {
     }, []);
 
     return (
-        <div className="jobListing">
-            <div className="listingInfo">
+        <div >
+            <div>
                 {advice.company.map((item, index) => {
-                    <div>
-                        <h1>{item.name}</h1>
-                        {console.log(item.name)}
+                    return(
+                    <div className="jobListing" key={item.name}>
+                        <div  className="listingInfo" >
+                            <h2 >{item.name}</h2>
+                            <h2 >{item.name}</h2>
+                            <h2 >{item.name}</h2>
+                         </div>
+
+                         <button className="jobSubmit"><h2>Apply</h2></button>
                     </div>
-                })}
-               
+                    )
+                })} 
             </div>
         </div>
     );
