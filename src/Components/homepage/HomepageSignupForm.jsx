@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function HomepageSignUpForm(){
     return(
@@ -6,7 +7,7 @@ function HomepageSignUpForm(){
             <div className="competitiveJob">
                 <h1>Interested in a competitive job?</h1>
 
-                <button className="blueButton">Sign Up</button>
+                <Link to="/login"><button className="blueButton">Sign Up</button></Link>
             </div>
 
             <div className="skilledEmployees">     

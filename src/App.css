@@ -55,6 +55,7 @@ body {
 
 .hero .searchBar input[type=submit]{
     background-color: #7FE5EA;
+    border: 1px solid #7FE5EA;
 }
 
 .homepageContent{

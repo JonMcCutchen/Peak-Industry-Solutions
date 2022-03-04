@@ -5,7 +5,7 @@ import AuthContext from '../store/authContext';
 import classes from './AuthForm.module.css';
 
 const AuthForm = () => {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
@@ -29,12 +29,15 @@ const AuthForm = () => {
     setIsLoading(true);
     let url;
     if (isLogin) {
+      //if logging in 
       url =
         'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC-L227GCLt_eJiLJMN0F5JDau3UiJYeC8';
     } else {
+      //if signing up
       url =
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC-L227GCLt_eJiLJMN0F5JDau3UiJYeC8';
     }
+    //post to url the email, password, and make token = true
     fetch(url, {
       method: 'POST',
       body: JSON.stringify({
@@ -65,8 +68,14 @@ const AuthForm = () => {
         const expirationTime = new Date(
           new Date().getTime() + +data.expiresIn * 1000
         );
+        console.log(data);
+        let adminEmail = "richard@gmail.com";
         authCtx.login(data.idToken, expirationTime.toISOString());
-        history.replace('/');
+        if(data.email == adminEmail){
+          navigate('/adminProfile');
+        }else{
+          navigate('/profile');
+        }   
       })
       .catch((err) => {
         alert(err.message);
@@ -78,11 +87,11 @@ const AuthForm = () => {
       <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
       <form onSubmit={submitHandler}>
         <div className={classes.control}>
-          <label htmlFor='email'>Your Email</label>
+          <label htmlFor='email'>Email</label>
           <input type='email' id='email' required ref={emailInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor='password'>Your Password</label>
+          <label htmlFor='password'>Password</label>
           <input
             type='password'
             id='password'
