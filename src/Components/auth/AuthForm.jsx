@@ -1,8 +1,10 @@
 import { useState, useRef, useContext } from 'react';
+import { getAuth, createUserWithEmailAndPassword  } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 import AuthContext from '../store/authContext';
 import classes from './AuthForm.module.css';
+import UserInfo from '../Profile/UserInfo';
 
 const AuthForm = () => {
   const navigate = useNavigate();
@@ -14,11 +16,13 @@ const AuthForm = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
+
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
 
   const submitHandler = (event) => {
+
     event.preventDefault();
 
     const enteredEmail = emailInputRef.current.value;
@@ -72,7 +76,8 @@ const AuthForm = () => {
         let adminEmail = "richard@gmail.com";
         authCtx.login(data.idToken, expirationTime.toISOString());
         if(data.email == adminEmail){
-          navigate('/adminProfile');
+          // navigate('/adminProfile');
+          navigate('/profile');
         }else{
           navigate('/profile');
         }   
