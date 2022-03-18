@@ -1,23 +1,30 @@
 import ProfileForm from './ProfileForm';
 import classes from './UserProfile.module.css';
 import { Link } from 'react-router-dom';
-import AuthContext from '../store/authContext';
-import { useContext } from 'react';
 import UserInfo from './UserInfo';
+import { getAuth, signOut } from "firebase/auth";
 
 const UserProfile = () => {
-  const authCtx = useContext(AuthContext);
 
-    const logoutHandler = () => {
-        authCtx.logout();
-    }
+  const signOutHandler = () => {
+
+    const auth = getAuth();
+    signOut(auth).then(() => {
+        // Sign-out successful.
+        console.log("user signed out")
+    }).catch((error) => {
+        // An error happened.
+        console.log(error);
+    });
+      
+  }
 
   return (
     <section className={classes.profile}>
-      <h1>Your User Profile</h1>
+      <h2>Welcome Please Fill Out The Information</h2>
       {/* <ProfileForm /> get rid of this soon */}
       <UserInfo />
-      <Link onClick={logoutHandler} to='/login'>Logout</Link>
+      <Link onClick={signOutHandler} to='/login'>Logout</Link>
     </section>
   );
 };

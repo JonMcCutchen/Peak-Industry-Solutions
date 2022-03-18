@@ -32,7 +32,7 @@
   color: black;
   border-radius: 4px;
   border: 1px solid white;
-  width: 100%;
+  width: 85%;
   text-align: left;
   padding: 0.25rem;
 }
@@ -54,8 +54,8 @@
   padding: 0.5rem 2.5rem;
 }
 
-.actions button:hover {
-  opacity: .5;
+.actions button:active {
+  opacity: .7;
 }
 
 .actions .toggle {

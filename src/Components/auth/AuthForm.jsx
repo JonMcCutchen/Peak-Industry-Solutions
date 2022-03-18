@@ -1,8 +1,6 @@
-import { useState, useRef, useContext } from 'react';
-import { getAuth, createUserWithEmailAndPassword  } from 'firebase/auth';
+import { useState, useRef } from 'react';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-
-import AuthContext from '../store/authContext';
 import classes from './AuthForm.module.css';
 import UserInfo from '../Profile/UserInfo';
 
@@ -11,8 +9,6 @@ const AuthForm = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
-  const authCtx = useContext(AuthContext);
-
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,6 +16,8 @@ const AuthForm = () => {
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
+
+  const auth = getAuth();
 
   const submitHandler = (event) => {
 
@@ -31,61 +29,49 @@ const AuthForm = () => {
     // optional: Add validation
 
     setIsLoading(true);
-    let url;
+    let method;
     if (isLogin) {
       //if logging in 
-      url =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC-L227GCLt_eJiLJMN0F5JDau3UiJYeC8';
+       method = signInWithEmailAndPassword(auth, enteredEmail, enteredPassword);
+       method.then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        const adminUid = "1f8QNb1Y8HV1JGQWx0JdFCbiOlv2";
+        if(user.uid == adminUid){
+          // navigate("/adminProfile");
+          navigate('/profile')
+        }else{
+        navigate('/profile')
+        }
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("signed out")
+        navigate('/login')
+        // ..
+      })
+
     } else {
       //if signing up
-      url =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC-L227GCLt_eJiLJMN0F5JDau3UiJYeC8';
+       method = createUserWithEmailAndPassword(auth, enteredEmail, enteredPassword);
+       method.then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log("signed in")
+        navigate('/user-info')
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("signed out")
+        navigate('/login')
+        // ..
+      })
     }
-    //post to url the email, password, and make token = true
-    fetch(url, {
-      method: 'POST',
-      body: JSON.stringify({
-        email: enteredEmail,
-        password: enteredPassword,
-        returnSecureToken: true,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => {
-        setIsLoading(false);
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            let errorMessage = 'Authentication failed!';
-            // if (data && data.error && data.error.message) {
-            //   errorMessage = data.error.message;
-            // }
-
-            throw new Error(errorMessage);
-          });
-        }
-      })
-      .then((data) => {
-        const expirationTime = new Date(
-          new Date().getTime() + +data.expiresIn * 1000
-        );
-        console.log(data);
-        let adminEmail = "richard@gmail.com";
-        authCtx.login(data.idToken, expirationTime.toISOString());
-        if(data.email == adminEmail){
-          // navigate('/adminProfile');
-          navigate('/profile');
-        }else{
-          navigate('/profile');
-        }   
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
-  };
+  }
 
   return (
     <section className={classes.auth}>

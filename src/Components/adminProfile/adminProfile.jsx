@@ -1,8 +1,12 @@
 import React from 'react';
+import { getAuth} from 'firebase/auth';
 
 function AdminProfile(){
+
+
+
     return(
-        <div>
+        <div className="container">
             <p>Hello admin</p>
         </div>
     )

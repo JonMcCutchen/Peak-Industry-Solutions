@@ -13,7 +13,7 @@ function HomepageSignUpForm(){
             <div className="skilledEmployees">     
                 <h1>Interested in skilled employees?</h1>
 
-                <button className="blueButton">Contact Us</button>
+                <Link to="/about-us"><button className="blueButton">Contact Us</button></Link>
             </div>
             
         

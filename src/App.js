@@ -1,8 +1,7 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import './App.css';
 import  Header  from './Components/Header.jsx';
 import Footer from './Components/Footer.jsx';
-import AuthContext from './Components/store/authContext';
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,14 +17,43 @@ import FAQ from './Components/FAQ';
 import AuthPage from './Components/auth/AuthPage';
 import UserProfile from './Components/Profile/UserProfile';
 import AdminProfile from './Components/adminProfile/adminProfile';
+import ProfileWithInfo from './Components/Profile/ProfileWithInfo';
+import { getAuth, onAuthStateChanged, setPersistence, browserSessionPersistence, signOut } from "firebase/auth";
 
 function App() {
-  const authCtx = useContext(AuthContext);
 
+  const auth = getAuth();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  setPersistence(auth, browserSessionPersistence)
+  .then(() => {
+     
+  onAuthStateChanged(auth, (user) => {  
+    if(user) {
+      console.log("user logged in state true");
+      setIsLoggedIn(true)
+      const uid = user.uid;
+    } else {
+      setIsLoggedIn(false);
+    }
+    });
+    // Existing and future Auth states are now persisted in the current
+    // session only. Closing the window would clear any existing state even
+    // if a user forgets to sign out.
+    // ...
+    // New sign-in will be persisted with session persistence.
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+  
   return (
     <div className="App">
       <Router>
-        <Header/>
+        <Header isLoggedIn={isLoggedIn}/>
+        
         <Routes>
 
           <Route path="/jobs" element={<JobsPage/>}/>
@@ -34,7 +62,7 @@ function App() {
              
           <Route path="/employers"/>
 
-          <Route path="/aboutUs" element={<AboutUs/>}/>
+          <Route path="/about-us" element={<AboutUs/>}/>
 
           <Route exact path="/" element={<Homepage/>}/> 
 
@@ -42,12 +70,16 @@ function App() {
 
           <Route path="/login" element={<AuthPage/>}/>
 
-          {authCtx.isLoggedIn && (
-            <Route path="/profile" element={<UserProfile/>}/> 
+          {isLoggedIn && (
+            <Route path="/user-info" element={<UserProfile />}/> 
           )}
 
-          {authCtx.isLoggedIn && (
+          {isLoggedIn && (
             <Route path="/adminProfile" element={<AdminProfile/>}/> 
+          )}
+
+          {isLoggedIn && (
+            <Route path="/profile" element={<ProfileWithInfo/>}/> 
           )}
         </Routes>
         <Footer/>
