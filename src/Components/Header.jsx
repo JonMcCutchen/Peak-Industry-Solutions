@@ -30,7 +30,6 @@ function Header(props) {
                 <Link to="/"><img className="logo" src={logo} alt="company logo"/></Link>
                 <div className="nav">
                     <Link to='/jobs'>Jobs</Link>
-                    <Link to='/employees'>Employees</Link>
                     <Link to='/employers'>Employers</Link>
                     <Link to='/about-us'>About Us</Link> 
                     {!props.isLoggedIn && <Link to='/login'>Login</Link>}

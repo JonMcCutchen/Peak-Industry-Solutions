@@ -6,10 +6,11 @@ import { db } from '../../firebase/firebase';
 import classes from '../auth/AuthForm.module.css'
 import jobPlacholderImage from '../../assets/placeholder-job-svgrepo-com.svg'
 
-const JobListing = ({job, isSearchClicked}) => {
+const JobListing = ({job, isSearchClicked, setJobCategory}) => {
     let [jobInfo, setJobInfo] = useState([]);/*, jobTitle: "", jobLocation: "", companyName:""*/
     let [isLoading, setIsLoading] = useState(true)
     let [isSClicked, setSClicked] = useState(false);
+    let [categories, setCategories] = useState({});
     const classRef = useRef(null);
 
      async function getCollection(){
@@ -26,6 +27,9 @@ const JobListing = ({job, isSearchClicked}) => {
                 });
 
             });
+           
+            setJobCategory(getPostsFromFirebase)
+            // console.log(`set job category ${getPostsFromFirebase[0]}`)
             setJobInfo(getPostsFromFirebase);
             setIsLoading(false);
           
@@ -36,7 +40,7 @@ const JobListing = ({job, isSearchClicked}) => {
             '@media (maxWidth: 480px)': {
               display: 'block',
             },
-          };
+        };
  
     useEffect( async()=> {
          
@@ -58,9 +62,11 @@ const JobListing = ({job, isSearchClicked}) => {
         <div >
             {jobInfo.length > 0 ? (
                 jobInfo.map((jobMap, index) => 
+                
 
                 {
-                if((isSearchClicked && jobMap.jobLocation.toLowerCase().includes(job.city.toLowerCase())) && (isSearchClicked && jobMap.jobTitle.toLowerCase().includes(job.jobTitle))){
+                   console.log(job.city) 
+                if((isSearchClicked && jobMap.jobLocation.toLowerCase().includes(job.city.toLowerCase())) && (isSearchClicked && jobMap.jobTitle.toLowerCase().includes(job.jobTitle)) && (isSearchClicked && jobMap.industry.toLowerCase().includes(job.industry.toLowerCase()))){
                     return(
                         <div className="jobListing">
                                 <img className="placeHolderImage" src={jobPlacholderImage}/>
@@ -68,7 +74,7 @@ const JobListing = ({job, isSearchClicked}) => {
                                 <p>{jobMap.jobLocation}</p>
                                 <p>{jobMap.jobTitle}</p>
                                 <div className="actions">
-                                    <button className="">Apply</button>
+                                    <Link to="/login"><button className="">Apply</button></Link>
                             </div>
                         </div>
                         )
@@ -82,7 +88,7 @@ const JobListing = ({job, isSearchClicked}) => {
                                 <p>{jobMap.jobTitle}</p>
                                 <div className="actions mobileApplyButton">
                                     <div>
-                                        <button className="">Apply</button>
+                                        <Link to="/login"><button className="">Apply</button></Link>
                                     </div>
                                 </div>
                             </div>
@@ -91,7 +97,8 @@ const JobListing = ({job, isSearchClicked}) => {
                 }
                 
             }))
-            :(<h1>No jobs yet</h1>)}
+            :(<h1>No jobs yet</h1>)
+            }
         </div>
     );
 };

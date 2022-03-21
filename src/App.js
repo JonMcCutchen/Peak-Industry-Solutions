@@ -10,7 +10,6 @@ import {
   Navigate
 } from "react-router-dom";
 import Homepage from './Components/homepage/Homepage.jsx';
-import Employees from './Components/employees/Employees';
 import JobsPage from './Components/jobs/JobsPage';
 import AboutUs from './Components/aboutUs/AboutUs';
 import FAQ from './Components/FAQ';
@@ -57,8 +56,6 @@ function App() {
         <Routes>
 
           <Route path="/jobs" element={<JobsPage/>}/>
-            
-          <Route path="/employees" element={<Employees/>}/>
              
           <Route path="/employers"/>
 

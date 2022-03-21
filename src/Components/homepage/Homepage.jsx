@@ -1,8 +1,6 @@
 import React from 'react';
 //import 'C:\Peak Industry Solutions\peak-industry-solutions\src\App.css';
 import HomepageSignUpForm from './HomepageSignupForm';
-import sampleHero from '../../assets/images/sample-hero.jpg';
-import sampleHeroTwo from '../../assets/images/sample-hero-2.jpg';
 import map from '../../assets/images/map_city_in_usa_florence.png';
 import SearchBar from '../jobs/SearchBar';
 
