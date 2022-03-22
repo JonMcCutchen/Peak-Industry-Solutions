@@ -1,14 +1,19 @@
 import React from 'react';
 //import 'C:\Peak Industry Solutions\peak-industry-solutions\src\App.css';
+import { useNavigate } from 'react-router-dom';
 import HomepageSignUpForm from './HomepageSignupForm';
 import map from '../../assets/images/map_city_in_usa_florence.png';
 import SearchBar from '../jobs/SearchBar';
 
 function Homepage() {
+    const navigate = useNavigate();
+    function handleSubmit() {
+        navigate('/jobs');
+    }
     return (
         <div className = "">
             <div className="hero"> 
-                <SearchBar />
+                {/* <button className="blueButtonH"><h1>Search Jobs</h1></button> */}
             </div>
             <div className="homepageContent">
                 <div className="homepageLeft">

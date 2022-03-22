@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import UserInfo from './UserInfo';
 import { db } from '../../firebase/firebase';
-import { doc, getDoc, collection } from "firebase/firestore";
+import { doc, getDoc, collection, addDoc } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
 import { getAuth, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import classes from '../auth/AuthForm.module.css';
 
 
 const ProfileWithInfo = () => {
@@ -17,12 +19,15 @@ const ProfileWithInfo = () => {
         type:""
     })
     const [link, setLink] = useState("")
+    const [jobInfoToStore, setJobInfoToStore] = useState({companyName: "", industry: "", jobLocation: "", jobTitle: ""});
+    const navigate = useNavigate();
 
     let auth = getAuth();
 
     const currentUser = auth.currentUser;
     const email = currentUser.email;
     const docRef = doc(db, "user-info", email)
+    console.log(currentUser.uid)
 
 
     
@@ -48,6 +53,7 @@ const ProfileWithInfo = () => {
     async function readDownloadURL() { 
         const url = await getDownloadURL(ref(storage, `gs://peak-industry-solutions.appspot.com/${user.email}.${user.type}`)) //gs://peak-industry-solutions.appspot.com/richard@gmail.com.docx
         setLink(url);
+
     }
     readDownloadURL();
 
@@ -65,6 +71,35 @@ const ProfileWithInfo = () => {
           
     }
 
+    const handleChange = (e) => {
+        setJobInfoToStore({
+            ...jobInfoToStore,
+            [e.target.name]: e.target.value,
+        })
+        
+    }
+    async function handleSubmit(e){  
+        const docRef = await addDoc(collection(db, "jobInfo"), {
+            companyName: jobInfoToStore.companyName,
+            industry: jobInfoToStore.industry,
+            jobLocation: jobInfoToStore.jobLocation,
+            jobTitle: jobInfoToStore.jobTitle
+          }).then(alert("Info submitted successfully"))
+          .then(navigate("/profile"))
+    }
+
+    if(currentUser.uid === "1f8QNb1Y8HV1JGQWx0JdFCbiOlv2"){
+    
+        <div className="profile-container">
+            <h1>{user.firstName}'s Profile</h1>
+            <div className="profile-logout">
+                <button><Link onClick={signOutHandler} to='/login'>Logout</Link></button>
+            </div>
+         <h1>Hello</h1>
+            
+        </div>
+        
+    }
     return (
         <div className="profile-container">
             <h1>{user.firstName}'s Profile</h1>
@@ -81,5 +116,6 @@ const ProfileWithInfo = () => {
             </div>
         </div>
     )
+    
 }
 export default ProfileWithInfo;

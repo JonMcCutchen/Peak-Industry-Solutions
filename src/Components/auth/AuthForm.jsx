@@ -39,6 +39,7 @@ const AuthForm = () => {
         const adminUid = "1f8QNb1Y8HV1JGQWx0JdFCbiOlv2";
         if(user.uid == adminUid){
           // navigate("/adminProfile");
+          // navigate('/adminProfile')
           navigate('/profile')
         }else{
         navigate('/profile')

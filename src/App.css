@@ -18,7 +18,7 @@ body {
     grid-column-start: 3;
     display: flex;
     align-items: center;
-    margin-left: 4rem;
+    margin-left: 7rem;
 }
 
 .nav a {
@@ -33,6 +33,7 @@ body {
 
 .hero {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-image: url("../src/assets/images/construction-workers2.jpg"), url("../src/assets/images/construction-workers.jpg");
@@ -43,41 +44,8 @@ body {
     width: 100%;
 }
 
-.hero .searchBar {
-    margin: auto;
-    display: flex;
-    justify-content:center;
-}
-
-.hero .searchBar input{
-    height: 1.5rem;
-    width: 8rem;
-    margin: 0 .5rem;
-}
-
-.hero .searchBar select{
-    margin: 0 .5rem;
-    height: 1.85rem;
-}
-
-.hero .searchBar input[type=submit]{
-    background-color: #768EFB;
-    height: 2rem;
-    width: 4rem;
-    margin: 0 1rem;
-    border-radius: 5px;
-    color: white;
-}
-
-.hero form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #7FE5EA;
-    width: auto;
-    height: 4rem;
-    border-radius: 10px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.hero h2 {
+    color: #768EFB;
 }
 
 .homepageContent{
@@ -131,6 +99,22 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 1.5rem;
     border: 1px solid #7FE5EA;
+}
+.hero button {
+    height: 8rem;
+    width: 20rem;
+    border-radius: 8px;
+    background-color: #768EFB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 1.5rem;
+    border: 1px solid #768EFB;
+}
+.hero button:active {
+    
+    box-shadow: none;
+}
+.hero button h1{
+    color: white;
 }
 
 .blueButton:active {
@@ -249,7 +233,7 @@ text-align: center;
 margin-bottom: 1rem;
 }
 .searchBar {
-    margin: auto;
+    margin: 0;
     margin-bottom: 3rem;
     display: flex;
     justify-content:center;
@@ -303,8 +287,14 @@ margin-bottom: 1rem;
     margin-bottom: 2.5rem;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.jobListing p{
+.jobListing div{
     margin: auto;
+}
+.jobListingHeader{
+    margin: auto;
+    text-align: center;
+    text-decoration: underline;
+    font-size: .8rem;
 }
 .jobListing .placeHolderImage{
     height: 3rem;
@@ -394,7 +384,7 @@ height: 71.5vh;
     align-items: center;
   }
   
-  .actions button {
+.actions button {
     cursor: pointer;
     font: inherit;
     color: white;
@@ -402,136 +392,167 @@ height: 71.5vh;
     border: 1px solid #7FE5EA;
     border-radius: 4px;
     padding: 0.5rem 2.5rem;
-  }
+}
   
-  .actions button:active {
+.actions button:active {
     opacity: .7;
-  }
+}
   
-  .actions .toggle {
+.actions .toggle {
     margin-top: 1rem;
     background-color: transparent;
     color: #7FE5EA;
     border: none;
     padding: 0.15rem 1.5rem;
-  }
+}
   
-  .actions .toggle:hover {
+.actions .toggle:hover {
     opacity: .5;
-  }
+}
 
-  /* Position and sizing of burger button */
+/* Position and sizing of burger button */
 .bm-burger-button {
     position: fixed;
     width: 36px;
     height: 30px;
     left: 90%;
     top: 36px;
-  }
+}
   
-  /* Color/shape of burger icon bars */
-  .bm-burger-bars {
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
     background: #768EFB;
-  }
+}
   
-  /* Color/shape of burger icon bars on hover*/
-  .bm-burger-bars-hover {
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
     opacity: .7;
-  }
+}
   
-  /* Position and sizing of clickable cross button */
-  .bm-cross-button {
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
     margin-right: 2rem;
     height: 24px;
     width: 24px;
-  }
+}
   
-  /* Color/shape of close button cross */
-  .bm-cross {
+/* Color/shape of close button cross */
+.bm-cross {
     background: black;
-  }
+}
   
-  /*
-  Sidebar wrapper styles
-  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-  */
-  .bm-menu-wrap {
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
     position: fixed;
     margin-top: 4rem;
-  }
+}
   
-  /* General sidebar styles */
-  .bm-menu {
-    padding: 2.5em 1.5em 0;
-    font-size: 1.15em;
+/* General sidebar styles */
+.bm-menu {
+    padding: 1.5rem 1.5rem 0;
+    font-size: 1.15rem;
     overflow: visible !important;
-  }
+}
   
-  /* Wrapper for item list */
-  .bm-item-list {
+/* Wrapper for item list */
+.bm-item-list {
     color: white;
-    padding: 0.8em;
+    padding: 0.8rem;
     text-align: right;
-  }
+}
   
-  /* Individual item */
-  .bm-item {
+/* Individual item */
+.bm-item {
     display: inline-block;
     text-decoration: none;
     color:#768EFB;
-  }
+    width: 4.75rem;
+    margin:auto;
+    margin-right: 0;
+}
 
-  .bm-item:hover {
+.bm-item:hover {
       opacity: .7;
-  }
+}
   
-  /* Styling of overlay */
-  .bm-overlay {
-    background: rgba(0, 0, 0, 0.3);
-  }
+/* Styling of overlay */
+.bm-overlay {
+    background: white !important;
+    height: 15rem !important;
+}
 
-  .aboutUs p {
+.aboutUs p {
       width: 75%;
       margin: auto;
-  }
+}
 
-  @media screen and (max-width: 480px) {
-      .html {
-          width: 100%;
-      }
-      .hero {
-          width: 100%;
-          flex-shrink: 0;
-          height: 15rem;
-      }
+/* Cell Phones */
+@media screen and (max-width: 480px) {
+    .html {
+        width: 100%;
+    }
 
-      .hero .searchBar {
-          width: 85%;
-          height: 5rem;
-      }
+    .logo {
+        margin-left: 0;
+    }
 
-      .homepageContent {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-      }
+    .hero {
+        width: 100%;
+        flex-shrink: 0;
+        height: 15rem;
+        background-image: none;
+        display: none;
+    }
 
-      .homepageLeft img {
-          width: 100%;
-          margin: 0;
-      }
 
-      .homepageRight {
-          margin: 0;
-      }
+    .homepageContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0;
+        margin-top: 3rem;
+    }
 
-      .blueButton {
-          width: 10rem;
-      }
+    .homepageLeft {
+        margin-bottom: 3em;
+    }
+
+    .homepageLeft img {
+        width: 100%;
+        margin: 0;
+    }
+
+    .homepageRight {
+        margin: 0;
+        height: auto;
+    }
+
+    .homepageRight .banner-with-links {
+        height: 100%;
+    }
+
+    .competitiveJob {
+        height: 50%;
+    }
+
+    .skilledEmployees {
+        height: 50%;
+    }
+
+    .skilledEmployees .blueButton {
+        margin-bottom: 2rem;
+    }
+
+    .blueButton {
+        width: 10rem;
+    }
       
-      .bm-burger-button {
-          left: 80%;
-      }
+    .bm-burger-button {
+        left: 80%;
+    }
     .container{
         margin-left: 1rem;
     }
@@ -547,7 +568,6 @@ height: 71.5vh;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         padding-top: 1rem;
         padding-left: 1rem;
-        margin-left: 2rem;
     }
     .jobListing p{
         margin: auto;
@@ -567,25 +587,19 @@ height: 71.5vh;
         display: none;
     }
     /* sarchbar section */
-    .searchBar {
-        padding: .5rem;
-        margin-bottom: 3rem;
-        width:85%;
-        height: 4.5rem;
-        border-radius: 15px;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    }
     .searchBar input{
         height: 1.5rem;
-        width: 5rem;
+        width: 4rem;
         margin-top: .2rem;
         border-radius: 5px;
+        border: 1px solid rgb(143, 143, 143);
     }
     
     .searchBar select{
         margin-top: .2rem;
         height: 1.85rem;
         display: block;
+        border: 1px solid rgb(143, 143, 143);
     }
     
     .searchBar input[type=submit]{
@@ -598,12 +612,77 @@ height: 71.5vh;
     }
     .searchForm {
         display: flex; 
+        padding: .5rem;
         flex-direction: row;
+        height: auto;
+        width: 75%;
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
     }
-    .footerLeft p:nth-child(2){
+
+    .searchForm select {
+        width: 4.5rem;
+    }
+
+    .footer {
+        height: 8rem;
+    }
+
+    .footer p {
+        font-size: 8px;
+        width: 100%;
         word-wrap: break-word;
     }
-  }
+
+    .footerRight p {
+        font-size: 6px;
+    }
+    
+    .footer h2 {
+        font-size: 14px;
+    }
+
+    .container {
+        margin: auto;
+        margin-bottom: 3rem;
+    }
+
+    .faq {
+        width: 90%;
+        margin: auto;
+    }
+}
+
+/* Tablets */
+@media screen and (max-width: 1024px) and (min-width: 481px) {
+    .homepageContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 0;
+        margin-top: 3rem;
+    }
+
+    .homepageLeft {
+        margin-bottom: 3em;
+    }
+
+    .homepageLeft img {
+        width: 100%;
+        margin: 0;
+    }
+
+    .homepageRight {
+        margin: 0;
+        height: auto;
+    }
+
+    .homepageRight .banner-with-links {
+        height: 100%;
+    }
+
+    .faq {
+        margin-bottom: 5em;
+    }
+}

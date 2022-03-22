@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function HomepageSignUpForm(){
     return(
-        <div>
+        <div className="banner-with-links">
             <div className="competitiveJob">
                 <h1>Interested in a competitive job?</h1>
 
@@ -15,8 +15,6 @@ function HomepageSignUpForm(){
 
                 <Link to="/about-us"><button className="blueButton">Contact Us</button></Link>
             </div>
-            
-        
         </div>
     )
 }

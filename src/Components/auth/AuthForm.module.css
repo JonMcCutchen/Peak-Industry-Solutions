@@ -69,3 +69,11 @@
 .actions .toggle:hover {
   opacity: .5;
 }
+
+@media screen and (max-width:480px) {
+  .auth {
+    width: 75%;
+    padding: .5rem;
+    margin-bottom: 5rem;
+  }
+}

@@ -65,7 +65,6 @@ const JobListing = ({job, isSearchClicked, setJobCategory}) => {
                 
 
                 {
-                   console.log(job.city) 
                 if((isSearchClicked && jobMap.jobLocation.toLowerCase().includes(job.city.toLowerCase())) && (isSearchClicked && jobMap.jobTitle.toLowerCase().includes(job.jobTitle)) && (isSearchClicked && jobMap.industry.toLowerCase().includes(job.industry.toLowerCase()))){
                     return(
                         <div className="jobListing">
@@ -83,9 +82,21 @@ const JobListing = ({job, isSearchClicked, setJobCategory}) => {
                         return(
                             <div key={index} className="jobListing" style={isSearchClicked?{display: "none"}: style}>
                                 <img className="placeHolderImage" src={jobPlacholderImage}/>
-                                <p>{jobMap.companyName}</p>
-                                <p>{jobMap.jobLocation}</p>
-                                <p>{jobMap.jobTitle}</p>
+                                <div>
+                                    <p className="jobListingHeader">Company</p>
+                                    <p>{jobMap.companyName}</p>
+                                </div>
+                                
+                                <div>
+                                    <p className="jobListingHeader">Location</p>
+                                    <p>{jobMap.jobLocation}</p>
+                                </div>
+                               
+                                <div>
+                                    <p className="jobListingHeader">Job Title</p>
+                                    <p>{jobMap.jobTitle}</p>
+                                </div>
+                                
                                 <div className="actions mobileApplyButton">
                                     <div>
                                         <Link to="/login"><button className="">Apply</button></Link>
