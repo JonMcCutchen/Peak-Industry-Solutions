@@ -41,7 +41,6 @@ function SearchBar({setJob, setIsSearchClicked, jobCategory}) {
         });
        
 
-        // console.log(`set job category ${getPostsFromFirebase[0]}`)
         setJobInfo(getPostsFromFirebase);
         setIsLoading(false);
       

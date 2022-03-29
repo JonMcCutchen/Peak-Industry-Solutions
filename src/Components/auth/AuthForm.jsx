@@ -49,7 +49,6 @@ const AuthForm = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log("signed out")
         navigate('/login')
         // ..
       })
@@ -60,14 +59,12 @@ const AuthForm = () => {
        method.then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log("signed in")
         navigate('/user-info')
         // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log("signed out")
         navigate('/login')
         // ..
       })

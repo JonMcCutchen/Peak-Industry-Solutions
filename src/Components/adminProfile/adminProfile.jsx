@@ -8,7 +8,7 @@ import { doc, getDoc, collection, addDoc } from "firebase/firestore";
 
 function AdminProfile(){
 
-    const [jobInfoToStore, setJobInfoToStore] = useState({companyName: "", industry: "", jobLocation: "", jobTitle: ""});
+    const [jobInfoToStore, setJobInfoToStore] = useState({companyName: "", industry: "", jobLocation: "", jobTitle: "", description: ""});
     const [user, setUser] = useState({
         firstName:"",
         lastName:"",
@@ -38,7 +38,6 @@ function AdminProfile(){
         }
         readDoc();
 
-        console.log(currentUser.uid)
         
     }, []);
 
@@ -56,7 +55,8 @@ function AdminProfile(){
             companyName: jobInfoToStore.companyName,
             industry: jobInfoToStore.industry,
             jobLocation: jobInfoToStore.jobLocation,
-            jobTitle: jobInfoToStore.jobTitle
+            jobTitle: jobInfoToStore.jobTitle,
+            description: jobInfoToStore.description
           }).then(alert("Info submitted successfully"))
           .then(navigate("/profile"))
     }
@@ -65,10 +65,8 @@ function AdminProfile(){
         const auth = getAuth();
         signOut(auth).then(() => {
             // Sign-out successful.
-            console.log("user signed out")
         }).catch((error) => {
             // An error happened.
-            console.log(error);
         });
           
     }
@@ -77,14 +75,13 @@ function AdminProfile(){
     return(
         <div className="profile-container">
                         <h1>{user.firstName}'s Profile</h1>  
-                        <h1> Add Job</h1>  
-                        {console.log(currentUser)}    
+                        <h1> Add Job</h1>      
 
 
             <form className={classes.auth}>
                 <div className={classes.control}>
                     <label htmlFor='companyName'>Company Name</label>
-                    <input type="text" name="companyName" placeholder="First Name" onChange={handleChange}/>
+                    <input type="text" name="companyName" placeholder="Company Name" onChange={handleChange}/>
                 </div>
                 <div className={classes.control}>
                     <label htmlFor='industry'>Industry</label>
@@ -97,6 +94,10 @@ function AdminProfile(){
                 <div className={classes.control}>
                     <label htmlFor='jobTitle'>Job Title</label>
                     <input type="text" name="jobTitle" placeholder="Job Title" onChange={handleChange}/>
+                </div>
+                <div className={classes.control}>
+                    <label htmlFor='description'>Description</label>
+                    <textarea id="description" name="description" rows="4" cols="35" placeholder="Description" onChange={handleChange}></textarea>
                 </div>
                
                 <div className={classes.actions}>

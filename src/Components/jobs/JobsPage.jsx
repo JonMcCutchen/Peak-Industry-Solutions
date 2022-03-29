@@ -8,7 +8,6 @@ function JobsPage() {
     const [jobCategory, setJobCategory] = useState([])
     return(
         <div>
-            {/* {console.log(job)} */}
             <h1 className="browseHeader">Browse Jobs</h1>
             <SearchBar setJob={setJob} setIsSearchClicked={setIsSearchClicked} jobCategory={jobCategory}/>
             <JobListing job={job} isSearchClicked={isSearchClicked} setJobCategory={setJobCategory}/>

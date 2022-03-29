@@ -27,7 +27,6 @@ const ProfileWithInfo = () => {
     const currentUser = auth.currentUser;
     const email = currentUser.email;
     const docRef = doc(db, "user-info", email)
-    console.log(currentUser.uid)
 
 
     
@@ -63,10 +62,9 @@ const ProfileWithInfo = () => {
         const auth = getAuth();
         signOut(auth).then(() => {
             // Sign-out successful.
-            console.log("user signed out")
+            
         }).catch((error) => {
             // An error happened.
-            console.log(error);
         });
           
     }

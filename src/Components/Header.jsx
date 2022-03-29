@@ -6,7 +6,7 @@ import AuthPage from './auth/AuthPage';
 import {
     Link
   } from "react-router-dom";
-import logo from "../assets/images/peak industry solutions.jpg";
+import logo from "../assets/images/Peak-Industry-Solutions-Logo-cropped.svg";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import App from '../App';
 import Sidebar from "./Sidebar";
@@ -27,7 +27,8 @@ function Header({isLoggedIn, isAdmin}) {
         return(
         <div>
             <header className="header">
-                <Link to="/"><img className="logo" src={logo} alt="company logo"/></Link>
+                {/* <img className="logo" src={logo} alt="company logo"/> */}
+                <Link to="/"><div className="headerImage"></div></Link>
                 <div className="nav">
                     <Link to='/jobs'>Jobs</Link>
                     <Link to='/about-us'>About Us</Link> 

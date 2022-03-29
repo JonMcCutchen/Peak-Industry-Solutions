@@ -59,7 +59,6 @@ function App() {
     });
 
     
-    console.log(isAdmin);
 
     
 
@@ -76,7 +75,6 @@ function App() {
       // doc.data() will be undefined in this case
       console.log("didnt run")
     }
-    console.log(`${email} is`)
   }
   
   
