@@ -355,6 +355,10 @@ margin-bottom: 1rem;
     font-weight: bold
 }
 
+textarea #description {
+    white-space: pre-line;
+}
+
 .container{
     margin-left: 5rem;
     margin-right: 5rem;
@@ -366,10 +370,6 @@ height: 71.5vh;
 .aboutUs h1{
     text-align: center;
     color: #768EFB
-}
-
-.aboutUs p {
-    width: 55%;
 }
 
 /* FAQ Sections */
@@ -539,7 +539,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .aboutUs p {
-      width: 75%;
+      width: 55%;
       margin: auto;
 }
 
