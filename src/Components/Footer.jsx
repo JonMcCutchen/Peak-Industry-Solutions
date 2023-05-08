@@ -6,12 +6,12 @@ function Footer() {
         <footer className="footer">
             <div className="footerLeft">
                 <h2>Contact</h2>
-                <p>peakindustrysolutions@aol.com</p>
+                <p>peakindustrysolutions@gmail.com</p>
                 <p>843-676-5084</p>
             </div>
             
             <div className="footerRight">
-                <p>Copyright 2022 Peak Industry Solutions</p>
+                <p>Copyright 2023 Peak Industry Solutions</p>
             </div>
              
         </footer>
